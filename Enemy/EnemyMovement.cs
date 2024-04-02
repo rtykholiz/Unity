@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         //MoveMethod1();
         MoveMethod2();
 
-        //Debug.Log(1.0f / Time.deltaTime);
+        Debug.Log(1.0f / Time.deltaTime);
     }
 
 
