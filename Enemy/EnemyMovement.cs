@@ -30,9 +30,29 @@ public class EnemyMovement : MonoBehaviour
         //MoveMethod1();
         MoveMethod2();
 
-        Debug.Log(1.0f / Time.deltaTime);
+       
     }
+    private void OnMouseDown()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
+        if (Input.touchCount > 0)
+        {
+            Touch _touch = Input.GetTouch(0);
+            if(_touch.phase == TouchPhase.Began)
+            {
+                Debug.Log("Touch");
+
+                if (hit.collider != null)
+                {
+                    Debug.Log("I'm hitting " + hit.collider.name);
+                }
+            }
+        }
+        
+        
+    }
 
     private void MoveMethod1()
     {
@@ -83,4 +103,6 @@ public class EnemyMovement : MonoBehaviour
             testTimer = _testTimer;
         }
     }
+
+   
 }
